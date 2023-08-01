@@ -1,0 +1,10 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: django-project
+    src: ./
+    engine: python3.9
+    primary: true
+    run: py chatapp/manage.py runserver
+    public_routes:
+      - "*/"

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/style.css' %}" />
+    <!-- <script src="{% static 'javascript/login.js' %}"></script> -->
+    <title>Sign Up | Chat</title>
+  </head>
+
+  <body>
+    <h1>Sign Up</h1>
+    <div class="login-form">
+      <form action="signup" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div>
+          <input
+            type="text"
+            name="first_name"
+            id="firstname"
+            placeholder="First name"
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="last_name"
+            id="lastname"
+            placeholder="Last name"
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <input type="email" name="email" id="email" placeholder="Email" autocomplete="off"/>
+        </div>
+        <div>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            autocomplete="new-password"
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="new-password"
+          />
+        </div>
+        <input type="submit" value="Sign Up" />
+      </form>
+      <div>
+        <div>
+          {% for message in messages %}
+            <p class="error">{{message}}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <p>
+        If you already have a acount! <a href="/login">Login</a>
+      </p>
+    </div>
+  </body>
+</html>
